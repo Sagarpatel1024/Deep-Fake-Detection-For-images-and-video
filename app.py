@@ -20,7 +20,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index')
 
 # Image upload route for prediction
 @app.route('/upload', methods=['POST'])
