@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detection</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"> -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Deepfake Detection</h1>
+        <p>Select the type of file and upload to detect if it's Real or Fake</p>
+        
+        <div class="dropdown">
+            <button class="dropdown-button">Select File Type</button>
+            <div class="dropdown-content">
+                <a href="/">Image Prediction</a>
+                <a href="/video_predict">Video Prediction</a>
+            </div>
+        </div>
+
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/, video/" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        <div class="result">
+            <h2>Prediction Result:</h2>
+            <div class="image-container">
+                <img src="{{ uploaded_image }}" alt="Uploaded Image">
+            </div>
+            <p>The image is predicted to be: <strong>{{ predicted_label }}</strong></p>
+            <p>Confidence: <strong>{{ prediction_probability }}%</strong></p>
+        </div>
+    </div>
+</body>
+</html>
